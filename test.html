@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Langsung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .search-results li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cari sesuatu..." onkeyup="liveSearch()">
+</div>
+
+<div class="search-results" id="results">
+    <!-- Hasil pencarian langsung akan muncul di sini -->
+</div>
+
+<script>
+    // Data contoh yang akan digunakan untuk pencarian
+    const data = [
+        "Apple",
+        "Banana",
+        "Orange",
+        "Pineapple",
+        "Mango",
+        "Grapes",
+        "Strawberry",
+        "Blueberry",
+        "Watermelon",
+        "Papaya"
+    ];
+
+    // Fungsi untuk melakukan live search
+    function liveSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const resultsDiv = document.getElementById('results');
+        
+        // Kosongkan hasil sebelumnya
+        resultsDiv.innerHTML = '';
+        
+        if (query) {
+            // Filter data berdasarkan input pengguna
+            const filteredData = data.filter(item => item.toLowerCase().includes(query));
+            
+            if (filteredData.length > 0) {
+                // Tampilkan hasil pencarian
+                const ul = document.createElement('ul');
+                filteredData.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    ul.appendChild(li);
+                });
+                resultsDiv.appendChild(ul);
+            } else {
+                resultsDiv.textContent = 'Tidak ada hasil yang ditemukan';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+s
