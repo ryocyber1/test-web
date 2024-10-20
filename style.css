@@ -2,13 +2,13 @@ body {
     
 }
 .background {
-    background-image: url(img/walpapr.png);
+    background-image: url(walpapr.png);
     background-repeat: no-repeat;
     background-size:cover;
 }
 
 .navigasimenu {
-    background-image: url(img/goldblacknav.jpg);
+    background-image: url(goldblacknav.jpg);
     height: 100px;
     background-repeat:no-repeat;
     border: 5px solid #ad9715;
